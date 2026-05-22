@@ -1,0 +1,93 @@
+{
+    "name": "Meta-Llama-3-8B-Instruct@truthful_qa",
+    "dataset_name": "truthful_qa",
+    "dataset_pretty_name": "TruthfulQA",
+    "dataset_description": "\n## Overview\n\nTruthfulQA is a benchmark designed to measure whether language models generate truthful answers to questions. It focuses on questions where humans might give false answers due to misconceptions, superstitions, or false beliefs.\n\n## Task Description\n\n- **Task Type**: Multiple-Choice Truthfulness Evaluation\n- **Input**: Question probing potential misconceptions\n- **Output**: True/false answer selection\n- **Formats**: MC1 (single correct) and MC2 (multiple correct)\n\n## Key Features\n\n- 817 questions spanning 38 categories (health, law, finance, politics, etc.)\n- Questions target common human misconceptions and false beliefs\n- Adversarially selected to expose model tendencies to repeat falsehoods\n- Tests ability to avoid generating plausible-sounding but incorrect answers\n- Includes both best answer (MC1) and all true answers (MC2) formats\n\n## Evaluation Notes\n\n- Default configuration uses **0-shot** evaluation with MC1 format\n- Set `multiple_correct=True` to use MC2 (multiple correct answers) format\n- Answer choices are shuffled during evaluation\n- Uses multi_choice_acc metric for scoring\n- Important benchmark for safety and alignment research\n",
+    "model_name": "Meta-Llama-3-8B-Instruct",
+    "score": 0.6,
+    "metrics": [
+        {
+            "name": "mean_multi_choice_acc",
+            "num": 5,
+            "score": 0.6,
+            "macro_score": 0.6,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 5,
+                    "score": 0.6,
+                    "macro_score": 0.6,
+                    "subsets": [
+                        {
+                            "name": "multiple_choice",
+                            "score": 0.6,
+                            "num": 5
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "analysis": "N/A",
+    "perf_metrics": {
+        "summary": {
+            "n_samples": 5,
+            "latency": {
+                "mean": 0.415963,
+                "std": 0.292216,
+                "min": 0.253219,
+                "25%": 0.29096,
+                "50%": 0.297723,
+                "75%": 0.300322,
+                "90%": 0.682684,
+                "99%": 0.912101,
+                "max": 0.937592
+            },
+            "throughput": {
+                "avg_output_tps": 12.02,
+                "avg_req_ps": 2.4041
+            },
+            "usage": {
+                "input_tokens": {
+                    "mean": 286.4,
+                    "std": 35.599157,
+                    "min": 253.0,
+                    "25%": 262.0,
+                    "50%": 272.0,
+                    "75%": 306.0,
+                    "90%": 325.8,
+                    "99%": 337.68,
+                    "max": 339.0
+                },
+                "output_tokens": {
+                    "mean": 5.0,
+                    "std": 0.0,
+                    "min": 5.0,
+                    "25%": 5.0,
+                    "50%": 5.0,
+                    "75%": 5.0,
+                    "90%": 5.0,
+                    "99%": 5.0,
+                    "max": 5.0
+                },
+                "total_tokens": {
+                    "mean": 291.4,
+                    "std": 35.599157,
+                    "min": 258.0,
+                    "25%": 267.0,
+                    "50%": 277.0,
+                    "75%": 311.0,
+                    "90%": 330.8,
+                    "99%": 342.68,
+                    "max": 344.0
+                },
+                "total_input_tokens": 1432,
+                "total_output_tokens": 25,
+                "total_tokens_count": 1457
+            }
+        }
+    },
+    "num": 5
+}
