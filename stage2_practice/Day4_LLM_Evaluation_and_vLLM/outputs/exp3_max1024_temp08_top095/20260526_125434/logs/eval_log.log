@@ -1,0 +1,161 @@
+2026-05-26 12:54:34 - evalscope - INFO: Running with native backend
+2026-05-26 12:54:34 - evalscope - INFO: Dump task config to ./outputs/exp3_max1024_temp08_top095/20260526_125434/configs/task_config.yaml
+2026-05-26 12:54:34 - evalscope - INFO: {
+    "model": "local-model",
+    "model_id": "local-model",
+    "model_args": {},
+    "model_task": "text_generation",
+    "chat_template": null,
+    "datasets": [
+        "humaneval"
+    ],
+    "dataset_args": {
+        "humaneval": {
+            "name": "humaneval",
+            "dataset_id": "opencompass/humaneval",
+            "output_types": [
+                "generation"
+            ],
+            "subset_list": [
+                "openai_humaneval"
+            ],
+            "default_subset": "default",
+            "few_shot_num": 0,
+            "few_shot_random": false,
+            "train_split": null,
+            "eval_split": "test",
+            "prompt_template": "Read the following function signature and docstring, and fully implement the function described. Your response should only contain the code for this function.\n{question}",
+            "few_shot_prompt_template": null,
+            "system_prompt": null,
+            "query_template": null,
+            "pretty_name": "HumanEval",
+            "description": "\n## Overview\n\nHumanEval is a benchmark for evaluating the code generation capabilities of language models. It consists of 164 hand-written Python programming problems with function signatures, docstrings, and comprehensive test cases.\n\n## Task Description\n\n- **Task Type**: Code Generation (Python)\n- **Input**: Function signature with docstring describing the expected behavior\n- **Output**: Complete Python function implementation\n- **Languages**: Python only\n\n## Key Features\n\n- 164 hand-crafted programming problems\n- Each problem includes a function signature, docstring, and test cases\n- Problems range from simple string manipulation to complex algorithms\n- Canonical solutions provided for reference\n- Automatic correctness verification through test execution\n\n## Evaluation Notes\n\n- **Security Warning**: By default, code is executed in the local environment. We strongly recommend using sandbox execution for safety. See the [sandbox documentation](https://evalscope.readthedocs.io/en/latest/user_guides/sandbox.html) for details.\n- Supports `pass@k` metric calculation for measuring generation quality\n- Default timeout is 4 seconds per problem\n- Code is extracted from markdown code blocks if present\n",
+            "paper_url": null,
+            "data_statistics": null,
+            "sample_example": null,
+            "tags": [
+                "Coding"
+            ],
+            "filters": null,
+            "metric_list": [
+                "acc"
+            ],
+            "aggregation": "mean_and_pass_at_k",
+            "shuffle": false,
+            "shuffle_choices": false,
+            "force_redownload": false,
+            "review_timeout": 4,
+            "extra_params": {},
+            "sandbox_config": {
+                "image": "python:3.11-slim",
+                "tools_config": {
+                    "shell_executor": {},
+                    "python_executor": {}
+                }
+            }
+        }
+    },
+    "dataset_dir": "./datasets",
+    "dataset_hub": "modelscope",
+    "repeats": 3,
+    "generation_config": {
+        "batch_size": 1,
+        "max_tokens": 1024,
+        "top_p": 0.95,
+        "temperature": 0.8
+    },
+    "eval_type": "openai_api",
+    "eval_backend": "Native",
+    "eval_config": null,
+    "limit": 10,
+    "eval_batch_size": 1,
+    "use_cache": null,
+    "rerun_review": false,
+    "work_dir": "./outputs/exp3_max1024_temp08_top095/20260526_125434",
+    "no_timestamp": false,
+    "enable_progress_tracker": false,
+    "ignore_errors": false,
+    "debug": false,
+    "seed": 42,
+    "api_url": "http://127.0.0.1:8001/v1",
+    "timeout": null,
+    "stream": null,
+    "judge_strategy": "auto",
+    "judge_worker_num": 1,
+    "judge_model_args": {},
+    "analysis_report": false,
+    "collect_perf": true,
+    "sandbox": {
+        "enabled": false,
+        "engine": "docker",
+        "default_config": {},
+        "manager_config": {},
+        "pool_size": null
+    },
+    "use_sandbox": false,
+    "sandbox_type": "docker",
+    "sandbox_manager_config": {},
+    "agent_config": null,
+    "evalscope_version": "1.7.1"
+}
+2026-05-26 12:54:34 - evalscope - INFO: Start loading benchmark dataset: humaneval
+2026-05-26 12:54:34 - evalscope - INFO: Start evaluating 1 subsets of humaneval: ['openai_humaneval']
+2026-05-26 12:54:34 - evalscope - INFO: Unified pool: 30 items to process, 0 already fully cached (30 total across all subsets).
+2026-05-26 12:54:34 - evalscope - INFO: Loading model for prediction...
+2026-05-26 12:54:34 - evalscope - INFO: Creating model local-model with eval_type=openai_api base_url=http://127.0.0.1:8001/v1, config={'retries': 5, 'retry_interval': 10, 'batch_size': 1, 'max_tokens': 1024, 'top_p': 0.95, 'temperature': 0.8}, model_args={}
+2026-05-26 12:54:34 - evalscope - INFO: Model loaded successfully.
+2026-05-26 12:55:35 - evalscope - INFO: Evaluating[humaneval]  23%| 7/30 [Elapsed: 01:00 < Remaining: 02:54,  7.61s/it]
+2026-05-26 12:56:35 - evalscope - INFO: Evaluating[humaneval]  50%| 15/30 [Elapsed: 02:00 < Remaining: 01:54,  7.62s/it]
+2026-05-26 12:57:35 - evalscope - INFO: Evaluating[humaneval]  80%| 24/30 [Elapsed: 03:01 < Remaining: 00:43,  7.18s/it]
+2026-05-26 12:58:20 - evalscope - INFO: Evaluating[humaneval] 100%| 30/30 [Elapsed: 03:45 < Remaining: 00:00,  7.41s/it]
+2026-05-26 12:58:20 - evalscope - INFO: Unified pool finished for humaneval.
+2026-05-26 12:58:20 - evalscope - INFO: Aggregating scores for subset: openai_humaneval
+2026-05-26 12:58:20 - evalscope - INFO: Generating report...
+2026-05-26 12:58:20 - evalscope - INFO: 
+humaneval report table:
+┌─────────────┬───────────┬─────────────────┬──────────────────┬───────┬─────────┬─────────┐
+│ Model       │ Dataset   │ Metric          │ Subset           │   Num │   Score │ Cat.0   │
+├─────────────┼───────────┼─────────────────┼──────────────────┼───────┼─────────┼─────────┤
+│ local-model │ humaneval │ mean_acc        │ openai_humaneval │    30 │  0.8333 │ default │
+├─────────────┼───────────┼─────────────────┼──────────────────┼───────┼─────────┼─────────┤
+│ local-model │ humaneval │ mean_acc_pass@1 │ openai_humaneval │    30 │  0.8333 │ default │
+├─────────────┼───────────┼─────────────────┼──────────────────┼───────┼─────────┼─────────┤
+│ local-model │ humaneval │ mean_acc_pass@2 │ openai_humaneval │    30 │  0.9333 │ default │
+├─────────────┼───────────┼─────────────────┼──────────────────┼───────┼─────────┼─────────┤
+│ local-model │ humaneval │ mean_acc_pass@3 │ openai_humaneval │    30 │  1      │ default │
+└─────────────┴───────────┴─────────────────┴──────────────────┴───────┴─────────┴─────────┘ 
+
+2026-05-26 12:58:20 - evalscope - INFO: Skipping report analysis (`analysis_report=False`).
+2026-05-26 12:58:20 - evalscope - INFO: Dump report to: ./outputs/exp3_max1024_temp08_top095/20260526_125434/reports/local-model/humaneval.json 
+
+2026-05-26 12:58:20 - evalscope - INFO: 
+humaneval perf table:
+Model        Dataset      Num    Avg Lat  Avg TTFT    Avg TPOT      Avg Thpt    Avg In    Avg Out
+                                     (s)  (ms)        (ms)           (tok/s)       Tok        Tok
+-----------  ---------  -----  ---------  ----------  ----------  ----------  --------  ---------
+local-model  humaneval     30     1.4722  -           -               108.34     156.9      159.5
+
+2026-05-26 12:58:20 - evalscope - INFO: Benchmark humaneval evaluation finished.
+2026-05-26 12:58:20 - evalscope - INFO: Running[eval] 100%| 1/1 [Elapsed: 03:45 < Remaining: 00:00, 225.82s/benchmark]
+2026-05-26 12:58:20 - evalscope - INFO: Overall report table: 
+┌─────────────┬───────────┬─────────────────┬──────────────────┬───────┬─────────┬─────────┐
+│ Model       │ Dataset   │ Metric          │ Subset           │   Num │   Score │ Cat.0   │
+├─────────────┼───────────┼─────────────────┼──────────────────┼───────┼─────────┼─────────┤
+│ local-model │ humaneval │ mean_acc        │ openai_humaneval │    30 │  0.8333 │ default │
+├─────────────┼───────────┼─────────────────┼──────────────────┼───────┼─────────┼─────────┤
+│ local-model │ humaneval │ mean_acc_pass@1 │ openai_humaneval │    30 │  0.8333 │ default │
+├─────────────┼───────────┼─────────────────┼──────────────────┼───────┼─────────┼─────────┤
+│ local-model │ humaneval │ mean_acc_pass@2 │ openai_humaneval │    30 │  0.9333 │ default │
+├─────────────┼───────────┼─────────────────┼──────────────────┼───────┼─────────┼─────────┤
+│ local-model │ humaneval │ mean_acc_pass@3 │ openai_humaneval │    30 │  1      │ default │
+└─────────────┴───────────┴─────────────────┴──────────────────┴───────┴─────────┴─────────┘ 
+
+2026-05-26 12:58:20 - evalscope - INFO: Overall perf table: 
+Model        Dataset      Num    Avg Lat  Avg TTFT    Avg TPOT      Avg Thpt    Avg In    Avg Out
+                                     (s)  (ms)        (ms)           (tok/s)       Tok        Tok
+-----------  ---------  -----  ---------  ----------  ----------  ----------  --------  ---------
+local-model  humaneval     30     1.4722  -           -               108.34     156.9      159.5 
+
+2026-05-26 12:58:20 - evalscope - INFO: HTML report generated: /home/yh/llm-learning-lab/stage2_practice/Day4_LLM_Evaluation_and_vLLM/outputs/exp3_max1024_temp08_top095/20260526_125434/reports/report.html
+2026-05-26 12:58:20 - evalscope - INFO: Finished evaluation for local-model on ['humaneval']
+2026-05-26 12:58:20 - evalscope - INFO: Output directory: ./outputs/exp3_max1024_temp08_top095/20260526_125434
